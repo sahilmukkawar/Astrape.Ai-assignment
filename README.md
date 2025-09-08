@@ -24,13 +24,14 @@ ecommerce-app/
 Put screenshots in `frontend/public/images` and uncomment:
 
 ```md
-![Home](/images/home.png)
-![Cart](/images/cart.png)
-![Login](/images/login.png)
-![Signup](/images/signup.png)
-![Address](/images/address.png)
-![Payment](/images/payment.png)
-![Orders](/images/orders.png)
+![Home](frontend/public/images/home.png)
+![Cart](frontend/public/images/cart.png)
+![Login](frontend/public/images/login.png)
+![Signup](frontend/public/images/signup.png)
+![Address](frontend/public/images/address.png)
+![Payment](frontend/public/images/payment.png)
+![Orders](frontend/public/images/orders.png)
+
 ```
 
 ## Setup
