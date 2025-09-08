@@ -5,11 +5,13 @@ import { useCart } from '../context/CartContext';
 export default function HomePage() {
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState<{ search?: string; category?: string; minPrice?: number; maxPrice?: number }>({});
   const { addToCart } = useCart();
 
   useEffect(() => {
     setLoading(true);
+    setError(null);
     const params: Record<string, string | number> = {};
     if (filters.search) params.search = filters.search;
     if (filters.category) params.category = filters.category;
@@ -17,6 +19,11 @@ export default function HomePage() {
     if (typeof filters.maxPrice === 'number' && !Number.isNaN(filters.maxPrice)) params.maxPrice = filters.maxPrice;
     fetchItems(params)
       .then(setItems)
+      .catch((e) => {
+        console.error('Failed to load items', e);
+        setError(e?.response?.data?.message || e?.message || 'Failed to load items');
+        setItems([]);
+      })
       .finally(() => setLoading(false));
   }, [filters]);
 
@@ -31,6 +38,10 @@ export default function HomePage() {
       </div>
       {loading ? (
         <p>Loading...</p>
+      ) : error ? (
+        <p style={{ color: 'crimson' }}>{error}</p>
+      ) : items.length === 0 ? (
+        <p>No items found.</p>
       ) : (
         <div className="grid-products">
           {items.map((p) => (
