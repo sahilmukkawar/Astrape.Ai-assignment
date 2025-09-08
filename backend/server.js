@@ -13,7 +13,11 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: process.env.CLIENT_URL || '*', credentials: true }));
+// CORS: allow explicit CLIENT_URL list if provided (comma-separated), otherwise allow all origins.
+// We do not use cookies for auth, so credentials are disabled to avoid wildcard + credentials conflict.
+const allowedOrigins = (process.env.CLIENT_URL || '').split(',').map((o) => o.trim()).filter(Boolean);
+app.use(cors({ origin: allowedOrigins.length ? allowedOrigins : true, credentials: false }));
+app.options('*', cors({ origin: allowedOrigins.length ? allowedOrigins : true, credentials: false }));
 app.use(express.json());
 app.use(morgan('dev'));
 
