@@ -33,15 +33,20 @@ A full-stack e-commerce single page app with JWT authentication, product listing
 ```
 ecommerce-app/
 ├── backend/
-│   ├── src/
-│   ├── package.json
-│   └── .env
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── config/
+│   ├── server.js
+│   ├── seed.js
+│   └── package.json
 └── frontend/
     ├── src/
     ├── public/
     │   └── images/
-    ├── package.json
-    └── .env
+    ├── vite.config.ts
+    └── package.json
 ```
 
 ## Setup Instructions
@@ -131,6 +136,8 @@ Frontend will be available at: `http://localhost:5173`
 
 - **Frontend URL:** [To be updated after deployment]
 - **Backend URL:** [To be updated after deployment]
+
+Add your links above when ready. If using Vercel/Netlify for frontend and Render/Railway for backend, ensure CORS `CLIENT_URL` in backend .env matches the deployed frontend origin.
 
 ## Troubleshooting
 
