@@ -1,0 +1,114 @@
+:root {
+  --brand: #1e3a8a;
+  --brand-600: #2563eb;
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(90deg, var(--brand), var(--brand-600));
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 16px;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 8px;
+}
+.spacer { margin-left: auto; }
+
+button {
+  background: var(--brand-600);
+  color: white;
+  border: 1px solid var(--brand-600);
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+button:hover { opacity: 0.95 }
+input {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  width: 220px;
+}
+img { border-radius: 8px; }
+
+/* Auth pages */
+.auth-section {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+}
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+}
+.auth-card h2 { margin: 0 0 12px 0; }
+.auth-card form { display: grid; gap: 12px; }
+.auth-card input { width: 100%; height: 44px; font-size: 16px; }
+
+/* Checkout pages centering */
+.page-section { display: flex; justify-content: center; padding: 24px 0; }
+.card-lg {
+  width: 100%;
+  max-width: 640px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+}
+.card-lg h2 { margin: 0 0 12px 0; }
+.form-large { display: grid; gap: 12px; }
+.form-large input, .form-large select { width: 100%; height: 44px; font-size: 16px; }
+
+/* Payment options */
+.payment-options { display: flex; align-items: center; justify-content: center; gap: 24px; margin: 8px 0 16px; }
+.payment-options label { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+.payment-options input[type="radio"] { width: 22px; height: 22px; accent-color: var(--brand-600); }
+
+/* Reusable */
+.btn { background: var(--brand-600); color:#fff; border:1px solid var(--brand-600); border-radius:8px; padding:8px 12px; }
+.btn.secondary { background:#fff; color: var(--brand-600); border:1px solid var(--brand-600); }
+
+.grid-products { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap:16px; }
+.card { border:1px solid var(--border); border-radius:12px; padding:12px; background:#fff; transition: box-shadow .2s ease; }
+.card:hover{ box-shadow:0 6px 16px rgba(0,0,0,.06) }
+.card .price{ font-weight:700 }
