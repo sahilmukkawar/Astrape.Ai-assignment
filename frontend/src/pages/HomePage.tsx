@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchItems, type Item } from '../services/items';
 import { useCart } from '../context/CartContext';
-import { useAuth } from '../context/AuthContext';
 
 export default function HomePage() {
   const [items, setItems] = useState<Item[]>([]);

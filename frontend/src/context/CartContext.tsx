@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { addToCart as addApi, getCart as getApi, removeFromCart as removeApi, updateCartItem as updateApi } from '../services/cart';
 import type { Cart } from '../services/cart';
-import type { Item } from '../services/items';
+// no direct Item usage here
 import { useAuth } from './AuthContext';
 import { useNotify } from './NotifyContext';
 

@@ -53,7 +53,7 @@ const Nav = () => {
   )
 }
 
-import { useNotify } from './context/NotifyContext'
+// no notify usage here
 
 const AppRoutes = () => {
   const { user } = useAuth()

@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { useNotify } from '../context/NotifyContext';
+// no notify needed here
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function CartPage() {
   const { cart, fetchCart, updateItem, removeItem } = useCart();
   const { token } = useAuth();
-  const { notify } = useNotify();
   const nav = useNavigate();
 
   useEffect(() => {
