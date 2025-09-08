@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const apiBaseUrl = import.meta.env.VITE_API_URL || 'https://astrape-ai-assignment-2.onrender.com/api' || 'http://localhost:5000/api';
 
 export const apiClient = axios.create({
   baseURL: apiBaseUrl,
