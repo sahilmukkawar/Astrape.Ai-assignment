@@ -134,8 +134,7 @@ Frontend will be available at: `http://localhost:5173`
 
 ## Deployment
 
-- **Frontend URL:** [To be updated after deployment]
-- **Backend URL:** [https://astrape-ai-assignment-2.onrender.com/]
+- **URL:** [https://sahil-ecom.netlify.app/]
 
 Add your links above when ready. If using Vercel/Netlify for frontend and Render/Railway for backend, ensure CORS `CLIENT_URL` in backend .env matches the deployed frontend origin.
 
