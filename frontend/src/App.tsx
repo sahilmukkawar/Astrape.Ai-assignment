@@ -57,7 +57,6 @@ import { useNotify } from './context/NotifyContext'
 
 const AppRoutes = () => {
   const { user } = useAuth()
-  const { notify } = useNotify()
   const requireAuth = (element: JSX.Element) => {
     if (!user) {
       return <Navigate to="/login" replace />

@@ -20,7 +20,7 @@ export default function PaymentPage() {
 
   const handlePay = async () => {
     const address = JSON.parse(sessionStorage.getItem('checkout_address') || '{}');
-    const order = await createOrder({ address, paymentMethod: method });
+    await createOrder({ address, paymentMethod: method });
     notify('Order placed successfully', 'success');
     await clearCart();
     sessionStorage.removeItem('checkout_address');

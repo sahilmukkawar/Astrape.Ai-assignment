@@ -8,7 +8,7 @@ import { useNotify } from './NotifyContext';
 type CartState = {
   cart: Cart | null;
   fetchCart: () => Promise<void>;
-  addToCart: (itemId: string, quantity?: number, item?: Item) => Promise<void>;
+  addToCart: (itemId: string, quantity?: number) => Promise<void>;
   updateItem: (itemId: string, quantity: number) => Promise<void>;
   removeItem: (itemId: string) => Promise<void>;
   clearCart: () => Promise<void>;
@@ -41,7 +41,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         // ignore (e.g., unauthenticated)
       }
     },
-    addToCart: async (itemId, quantity = 1, item?: Item) => {
+    addToCart: async (itemId, quantity = 1) => {
       if (token) {
         const data = await addApi(itemId, quantity);
         setCart(data);

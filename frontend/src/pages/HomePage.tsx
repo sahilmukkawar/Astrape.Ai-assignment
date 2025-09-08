@@ -8,7 +8,6 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState<{ search?: string; category?: string; minPrice?: number; maxPrice?: number }>({});
   const { addToCart } = useCart();
-  const { token } = useAuth();
 
   useEffect(() => {
     setLoading(true);
@@ -42,7 +41,7 @@ export default function HomePage() {
               <p style={{ minHeight: 40 }}>{p.description}</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span className="price">₹{p.price}</span>
-                <button className="btn" onClick={() => addToCart(p._id, 1, p)}>Add to Cart</button>
+                <button className="btn" onClick={() => addToCart(p._id, 1)}>Add to Cart</button>
               </div>
             </div>
           ))}
