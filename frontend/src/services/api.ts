@@ -1,16 +1,17 @@
 import axios from 'axios';
 
-const apiBaseUrl = import.meta.env.VITE_API_URL || 'https://astrape-ai-assignment-2.onrender.com/api' || 'http://localhost:5000/api';
+// Prefer explicit env var; otherwise, use relative '/api' so Vite proxy or same-origin works.
+const apiBaseUrl = (import.meta as any).env?.VITE_API_URL || '/api';
 
 export const apiClient = axios.create({
   baseURL: apiBaseUrl,
 });
 
 apiClient.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
+  const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
   if (token) {
     config.headers = config.headers ?? {};
-    config.headers.Authorization = `Bearer ${token}`;
+    (config.headers as any).Authorization = `Bearer ${token}`;
   }
   return config;
 });

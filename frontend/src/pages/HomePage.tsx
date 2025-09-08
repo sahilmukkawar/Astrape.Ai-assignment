@@ -10,12 +10,12 @@ export default function HomePage() {
 
   useEffect(() => {
     setLoading(true);
-    fetchItems({
-      search: filters.search || '',
-      category: filters.category || '',
-      minPrice: filters.minPrice ?? '',
-      maxPrice: filters.maxPrice ?? ''
-    })
+    const params: Record<string, string | number> = {};
+    if (filters.search) params.search = filters.search;
+    if (filters.category) params.category = filters.category;
+    if (typeof filters.minPrice === 'number' && !Number.isNaN(filters.minPrice)) params.minPrice = filters.minPrice;
+    if (typeof filters.maxPrice === 'number' && !Number.isNaN(filters.maxPrice)) params.maxPrice = filters.maxPrice;
+    fetchItems(params)
       .then(setItems)
       .finally(() => setLoading(false));
   }, [filters]);

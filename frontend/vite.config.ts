@@ -1,11 +1,18 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
+export default defineConfig(() => ({
   plugins: [react()],
   server: {
     host: '0.0.0.0',
     port: process.env.PORT ? Number(process.env.PORT) : 5173,
+    proxy: {
+      '/api': {
+        target: process.env.VITE_BACKEND_URL || 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
   },
   preview: {
     host: '0.0.0.0',
@@ -14,4 +21,4 @@ export default defineConfig({
       'astrape-ai-assignment-3.onrender.com'
     ]
   }
-})
+}))
